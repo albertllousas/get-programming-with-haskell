@@ -25,7 +25,7 @@ showPatientInfo (firstName, lastName) age height = name ++ " " ++ ageHeight
 -- data constructors
 -- Algebraic data types: https://wiki.haskell.org/Algebraic_data_type
 
--- Sum type
+-- SUM type
 -- Type = DataConstructor or DataConstructor
 data Sex = Male | Female
 
@@ -37,7 +37,7 @@ showSex Female = "F"
 data RhType = Positive | Negative
 data ABOType = A | B | AB | O
 
--- Product type
+-- PRODUCT type
 -- Type = DataConstructor TypesToCombine ...
 data BloodType = BloodType ABOType RhType
 
@@ -63,6 +63,7 @@ canDonate (BloodType B _ ) (BloodType B _ ) = True
 canDonate _ _ = False
 
 type MiddleName = String
+-- HYBRID : SUM & PRODUCT type
 data Name = Name FirstName LastName | NameWithMiddle FirstName MiddleName LastName
 
 showName :: Name -> String
@@ -92,3 +93,9 @@ showPatientInfoV4 record = showPatientInfoV2 (name record) (sex record) (age rec
 canDonateTo :: PatientRecord -> PatientRecord -> Bool
 canDonateTo PatientRecord {bloodType=bt} PatientRecord {bloodType=bt2} = canDonate bt bt2
 --canDonateTo patient1Record patient2Record = canDonate (bloodType patient1Record) (bloodType patient2Record) -- diff way
+
+-- tiny types (one constructor with one field, indicates that the runtime representation of the value is identical to the underlying value)
+newtype NickName = NickName String
+
+showNickName :: NickName -> String
+showNickName (NickName n) = n

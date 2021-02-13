@@ -27,10 +27,7 @@ spec = do
       showRh Negative `shouldBe` "N"
 
     it "should show ABO" $ do
-      showABO A `shouldBe` "A"
-      showABO B `shouldBe` "B"
-      showABO AB `shouldBe` "AB"
-      showABO O `shouldBe` "O"
+      map showABO [A, B, AB, O] `shouldBe` ["A", "B", "AB", "O"]
 
     it "should show blood type" $ do
       showBloodType (BloodType A Positive) `shouldBe` "BloodType: A P"
@@ -66,3 +63,6 @@ spec = do
       let patient1 = PatientRecord { name = Name "John" "Doe", sex = Male, age = 40 , height = 170 , bloodType = BloodType O Positive }
       let patient2 = patient1 { name = Name "Jane" "Doe", sex = Female }
       canDonateTo patient1 patient2 `shouldBe` True
+
+    it "should print a nickname" $ do
+      showNickName (NickName "Joe") `shouldBe` "Joe"

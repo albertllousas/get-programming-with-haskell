@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 652e6a314a2ef1286ccc126d4a8015eb429bfe92615753cd005b0204a2136f4c
+-- hash: 4b384d3770b323781dad2ea98ab9018cbb28b65297880ba2696e747dba231559
 
 name:           fun-with-haskell
 version:        0.1.0.0
@@ -28,9 +28,9 @@ library
   exposed-modules:
       CreatingTypes
       Functions
-      Lib
       OOPWithClosures
       RecursiveFns
+      TypeClasses
   other-modules:
       Paths_fun_with_haskell
   hs-source-dirs:
@@ -48,6 +48,7 @@ test-suite fun-with-haskell-test
       OOPWithClosuresSpec
       RecursiveFnsSpec
       TestSpec
+      TypeClassesSpec
       Paths_fun_with_haskell
   hs-source-dirs:
       test
