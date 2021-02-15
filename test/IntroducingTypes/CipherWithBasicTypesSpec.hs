@@ -38,6 +38,9 @@ spec = do
     it "should encode and decode a string message" $ do
       rotDecoder (rotEncoder "hi") `shouldBe` "hi"
 
+    it "should encode and decode a string message using a cipher typeclass" $ do
+      encode Rot (decode Rot "Haskell") `shouldBe` "Haskell"
+
   describe "XOR (exclusive or)" $ do
     it "should apply XOR function two Booleans" $ do
       xorBool True True `shouldBe` False

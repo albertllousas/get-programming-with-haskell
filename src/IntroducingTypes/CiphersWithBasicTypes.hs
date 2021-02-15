@@ -58,6 +58,20 @@ rotDecoder text = map rotCharDecoder text
   where alphabetSize = 1 + fromEnum (maxBound :: Char)
         rotCharDecoder = rotNDecoder alphabetSize
 
+class Cipher a where
+  encode :: a -> String -> String
+  decode :: a -> String -> String
+
+data Rot = Rot
+
+instance Cipher Rot where
+  encode Rot text = rotEncoder text
+  decode Rot text = rotDecoder text
+
+---------
+-- XOR --
+---------
+
 xorBool :: Bool -> Bool -> Bool
 xorBool True False = True
 xorBool False True = True
@@ -66,6 +80,20 @@ xorBool _ _ = False
 xor :: [Bool] -> [Bool] -> [Bool]
 xor l1 l2 = map xorPair (zip l1 l2)
   where xorPair = (\(a, b) -> xorBool a b)
+
+
+
+type Bits = [Bool]
+
+intToBits :: Int -> Bits
+intToBits 0 = [False]
+intToBits 1 = [True]
+intToBits n = if (remainder == 0)
+              then False : intToBits nextVal
+              else True : intToBits nextVal
+  where remainder = n `mod` 2
+        nextVal = n `div` 2
+
 
 
 
