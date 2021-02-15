@@ -1,14 +1,18 @@
 {-# OPTIONS_GHC -fwarn-incomplete-patterns #-}
-module CreatingTypes where
+module IntroducingTypes.CreatingTypes where
 
--- Type synonyms
+-------------------
+-- Type synonyms --
+-------------------
 
 type FirstName = String
 type LastName = String
 type Age = Int
 type Height = Int
 
--- Tuples
+------------
+-- Tuples --
+------------
 type PatientName = (FirstName, LastName)
 
 firstName :: PatientName -> FirstName
@@ -22,11 +26,12 @@ showPatientInfo (firstName, lastName) age height = name ++ " " ++ ageHeight
    where name = lastName ++ ", " ++ firstName
          ageHeight = "(" ++ show age ++ "yrs. " ++ show height ++ "cms.)"
 
--- data constructors
+-----------------------
+-- data constructors --
+-----------------------
 -- Algebraic data types: https://wiki.haskell.org/Algebraic_data_type
 
 -- SUM type
--- Type = DataConstructor or DataConstructor
 data Sex = Male | Female
 
 -- show function (without type classes)
@@ -38,10 +43,8 @@ data RhType = Positive | Negative
 data ABOType = A | B | AB | O
 
 -- PRODUCT type
--- Type = DataConstructor TypesToCombine ...
 data BloodType = BloodType ABOType RhType
 
--- show functions (without type classes)
 showRh :: RhType -> String
 showRh Positive = "P"
 showRh Negative = "N"
@@ -79,7 +82,9 @@ data Patient = Patient Name Sex Age Height BloodType
 showPatientInfoV3 :: Patient -> String
 showPatientInfoV3 (Patient name sex age height bloodType) = showPatientInfoV2 name sex age height bloodType
 
--- Records
+-------------
+-- Records --
+-------------
 data PatientRecord = PatientRecord { name :: Name
                                    , sex :: Sex
                                    , age :: Int
@@ -94,6 +99,9 @@ canDonateTo :: PatientRecord -> PatientRecord -> Bool
 canDonateTo PatientRecord {bloodType=bt} PatientRecord {bloodType=bt2} = canDonate bt bt2
 --canDonateTo patient1Record patient2Record = canDonate (bloodType patient1Record) (bloodType patient2Record) -- diff way
 
+-------------
+-- newtype --
+-------------
 -- tiny types (one constructor with one field, indicates that the runtime representation of the value is identical to the underlying value)
 newtype NickName = NickName String
 

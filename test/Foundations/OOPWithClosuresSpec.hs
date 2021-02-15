@@ -1,7 +1,7 @@
-module OOPWithClosuresSpec where
+module Foundations.OOPWithClosuresSpec where
 
 import Test.Hspec
-import OOPWithClosures
+import Foundations.OOPWithClosures
 
 spec :: Spec
 spec = do

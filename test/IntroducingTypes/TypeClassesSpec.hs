@@ -1,7 +1,7 @@
-module TypeClassesSpec where
+module IntroducingTypes.TypeClassesSpec where
 
 import Test.Hspec
-import TypeClasses
+import IntroducingTypes.TypeClasses
 import Data.List
 
 spec :: Spec

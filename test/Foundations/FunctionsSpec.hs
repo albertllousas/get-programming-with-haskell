@@ -1,7 +1,7 @@
-module FunctionsSpec where
+module Foundations.FunctionsSpec where
 
 import Test.Hspec
-import Functions
+import Foundations.Functions
 
 spec :: Spec
 spec = do

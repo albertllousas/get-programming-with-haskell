@@ -1,7 +1,7 @@
-module RecursiveFnsSpec where
+module Foundations.RecursiveFnsSpec where
 
 import Test.Hspec
-import RecursiveFns
+import Foundations.RecursiveFns
 
 spec :: Spec
 spec = do

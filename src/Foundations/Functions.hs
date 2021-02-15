@@ -1,4 +1,4 @@
-module Functions where
+module Foundations.Functions where
 
 -- lambda
 addOne = \x -> (x::Int) + 1

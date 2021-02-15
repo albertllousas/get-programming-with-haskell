@@ -1,7 +1,7 @@
-module CreatingTypesSpec where
+module IntroducingTypes.CreatingTypesSpec where
 
 import Test.Hspec
-import CreatingTypes
+import IntroducingTypes.CreatingTypes
 
 spec :: Spec
 spec = do

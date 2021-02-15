@@ -1,4 +1,4 @@
-module OOPWithClosures where
+module Foundations.OOPWithClosures where
 --------------------------
 -- CUP with milliliters --
 --------------------------

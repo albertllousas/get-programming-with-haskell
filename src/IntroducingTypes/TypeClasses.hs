@@ -1,5 +1,5 @@
 {-# OPTIONS_GHC -fwarn-incomplete-patterns #-}
-module TypeClasses where
+module IntroducingTypes.TypeClasses where
 
 data SixSidedDie = S1 | S2 | S3 | S4 | S5 | S6
 

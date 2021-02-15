@@ -1,4 +1,4 @@
-module RecursiveFns where
+module Foundations.RecursiveFns where
 
 myLength :: [a] -> Int
 myLength [] = 0
