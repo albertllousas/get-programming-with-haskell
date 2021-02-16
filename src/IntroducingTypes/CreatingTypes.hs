@@ -93,7 +93,7 @@ data PatientRecord = PatientRecord { name :: Name
                                    }
 
 showPatientInfoV4 :: PatientRecord -> String
-showPatientInfoV4 record = showPatientInfoV2 (name record) (sex record) (age record) (height record) (bloodType record)
+showPatientInfoV4 record = showPatientInfoV2 (name record) (sex record) (age record) (height record) (bloodType record) -- records give us get built-in fns
 
 canDonateTo :: PatientRecord -> PatientRecord -> Bool
 canDonateTo PatientRecord {bloodType=bt} PatientRecord {bloodType=bt2} = canDonate bt bt2
