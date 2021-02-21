@@ -2,7 +2,6 @@ module ProgrammingInTypes.SemigroupsAndMonoidsSpec where
 
 import Test.Hspec
 import ProgrammingInTypes.SemigroupsAndMonoids
-import Prelude hiding ((<>))
 
 spec :: Spec
 spec = do
@@ -23,10 +22,28 @@ spec = do
 
   describe "Combining types with Semigroup" $ do
     it "should combine colors" $ do
-      Red <> Yellow `shouldBe` Orange
-      Red <> Blue `shouldBe` Purple
-      Green <> Purple `shouldBe` Brown
+      Red `combine` Yellow `shouldBe` Orange
+      Red `combine` Blue `shouldBe` Purple
+      Green `combine` Purple `shouldBe` Brown
 
     it "should combine colors keeping associativity" $ do
-      (Green <> Blue) <> Yellow `shouldBe` Green
-      Green <> (Blue <> Yellow) `shouldBe` Green
+      (Green `combine` Blue) `combine` Yellow `shouldBe` Green
+      Green `combine` (Blue `combine` Yellow) `shouldBe` Green
+
+    it "should combine Integers" $ do
+       (1::Int) `combine` (2::Int) `shouldBe` (3::Int)
+
+  describe "Combining types with Monoids" $ do
+    it "should `combine` lists using our own definition of monoid" $ do
+       ([1,2,3] `combine` identity `combine` [3,2,1]) `shouldBe` [1,2,3,3,2,1]
+
+    it "should `combine` lists using Haskell monoid" $ do
+       ([1,2,3] `mappend` mempty `mappend` [3,2,1]) `shouldBe` [1,2,3,3,2,1]
+
+    it "should concat array elements using monoid" $ do
+       concat' ["Does", " it", " make", " sense?"] `shouldBe` "Does it make sense?"
+
+    it "should follow the monoid Laws" $ do
+       identity `combine` [1,2,3] `shouldBe` [1,2,3] -- left identity
+       [1,2,3] `combine` identity `shouldBe` [1,2,3] -- right identity
+       (([1] `combine` [2]) `combine` [3]) `shouldBe` ([1] `combine` ([2] `combine` [3])) -- associativity

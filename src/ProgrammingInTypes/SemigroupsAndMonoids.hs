@@ -26,21 +26,39 @@ myAll testFn = (foldl (&&) True) . (map testFn) -- f (g x) = (f . g) x
 -- Semigroup --
 ---------------
 
-class Semigroup' a where
-  (<>) :: a -> a -> a -- <> is an associative operation (combine)
+class Semigroup' a where -- a A set of elements that satisfies:
+  combine :: a -> a -> a -- Associativity: binary associative op call combine, which "adds" together two elements to make a new one
 
 data Color = Red | Yellow | Blue | Green | Purple | Orange | Brown deriving (Eq, Show)
 
 instance Semigroup' Color where
-    (<>) Red Blue = Purple
-    (<>) Blue Red = Purple
-    (<>) Yellow Blue = Green
-    (<>) Blue Yellow = Green
-    (<>) Yellow Red = Orange
-    (<>) Red Yellow = Orange
-    (<>) a b | a == b = a
+    combine Red Blue = Purple
+    combine Blue Red = Purple
+    combine Yellow Blue = Green
+    combine Blue Yellow = Green
+    combine Yellow Red = Orange
+    combine Red Yellow = Orange
+    combine a b | a == b = a
              | [a,b] `areIn` [Red,Blue,Purple] = Purple
              | [a,b] `areIn` [Blue,Yellow,Green] = Green
              | [a,b] `areIn` [Red,Yellow,Orange] = Orange
              | otherwise = Brown
              where areIn = \items inValues ->  all (`elem` (inValues::[Color])) (items::[Color])
+
+instance Semigroup' Int where
+    combine a b = a + b
+
+------------
+-- Monoid --
+------------
+
+class (Semigroup' a) => Monoid' a where -- a A set of elements satisfies Semigroup and:
+
+    identity :: a -- Identity: identity element, unit element which acts neutrally when "added" to any other element
+    concat' :: [a] -> a -- Combine a list of monoids into a single one
+
+instance Semigroup' [a] where combine = (++) -- I need to do this or I cannot create a Monoid' instance
+
+instance Monoid' [a] where
+    identity  = []
+    concat' = foldr combine identity
