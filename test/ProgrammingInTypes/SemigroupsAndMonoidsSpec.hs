@@ -30,8 +30,8 @@ spec = do
       (Green `combine` Blue) `combine` Yellow `shouldBe` Green
       Green `combine` (Blue `combine` Yellow) `shouldBe` Green
 
-    it "should combine Integers" $ do
-       (1::Int) `combine` (2::Int) `shouldBe` (3::Int)
+    it "should combine Sum types" $ do
+       (Sum 1) `combine` (Sum 2) `shouldBe` (Sum 3)
 
   describe "Combining types with Monoids" $ do
     it "should `combine` lists using our own definition of monoid" $ do

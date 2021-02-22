@@ -45,15 +45,21 @@ instance Semigroup' Color where
              | otherwise = Brown
              where areIn = \items inValues ->  all (`elem` (inValues::[Color])) (items::[Color])
 
-instance Semigroup' Int where
-    combine a b = a + b
+data Sum a = Sum a deriving (Eq, Ord, Show)
+
+instance Num a => Semigroup' (Sum a) where
+    combine (Sum x) (Sum y) = Sum (x + y)
+
+data Product a = Product a deriving (Eq, Ord, Show)
+
+instance Num a => Semigroup' (Product a) where
+    combine (Product x) (Product y) = Product (x * y)
 
 ------------
 -- Monoid --
 ------------
 
 class (Semigroup' a) => Monoid' a where -- a A set of elements satisfies Semigroup and:
-
     identity :: a -- Identity: identity element, unit element which acts neutrally when "added" to any other element
     concat' :: [a] -> a -- Combine a list of monoids into a single one
 

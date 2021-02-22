@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 637af7dff5e73ed1fdff6770962cbd3f581aaee2079ead61d3b4fdb44e9b9777
+-- hash: 6331105a5d5d2c7e64bfaf959b62333f1dc44621865c4097c183cdc05c2b1da0
 
 name:           fun-with-haskell
 version:        0.1.0.0
@@ -33,6 +33,7 @@ library
       IntroducingTypes.CreatingTypes
       IntroducingTypes.TypeClasses
       ProgrammingInTypes.AlgebraicDataTypes
+      ProgrammingInTypes.ParameterizedTypes
       ProgrammingInTypes.SemigroupsAndMonoids
   other-modules:
       Paths_fun_with_haskell
