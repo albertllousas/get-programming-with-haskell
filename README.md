@@ -8,6 +8,8 @@ Introduction to haskell through examples, almost all of them following this amaz
 
 [Get programming with Haskell - Will Kurt](https://www.manning.com/books/get-programming-with-haskell)
 
+All the [code](/src) is fully [tested](/test)
+
 ## Build
 ```shell
 stack build

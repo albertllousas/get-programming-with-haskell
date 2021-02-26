@@ -10,7 +10,7 @@ myTake 0 _ = []
 myTake n (x:xs) = x:rest
     where rest = myTake (n-1) xs
 
-myMap :: (a->b) -> [a] -> [b]
+myMap :: (a -> b) -> [a] -> [b]
 myMap _ [] = []
 myMap f (x:xs) = (f x):(myMap f xs)
 

@@ -60,7 +60,7 @@ instance Num a => Semigroup' (Product a) where
 ------------
 
 class (Semigroup' a) => Monoid' a where -- a A set of elements satisfies Semigroup and:
-    identity :: a -- Identity: identity element, unit element which acts neutrally when "added" to any other element
+    identity :: a -- Identity: identity element, unit element which acts neutrally when "added" to any other element in the Set
     concat' :: [a] -> a -- Combine a list of monoids into a single one
 
 instance Semigroup' [a] where combine = (++) -- I need to do this or I cannot create a Monoid' instance

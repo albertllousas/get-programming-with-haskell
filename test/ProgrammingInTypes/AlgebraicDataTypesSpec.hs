@@ -5,6 +5,10 @@ import ProgrammingInTypes.AlgebraicDataTypes
 
 spec :: Spec
 spec = do
+  describe "Breakfast menu" $ do
+    it "should construct a breakfast menu" $ do
+      show (KidsBreakfast Egg HomeFries) `shouldBe` "KidsBreakfast Egg HomeFries"
+
   describe "book store" $ do
     let book = BookItem Book {
                         author    = Author (Name "Stephen" "King"),

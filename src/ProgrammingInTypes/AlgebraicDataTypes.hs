@@ -5,14 +5,14 @@ module ProgrammingInTypes.AlgebraicDataTypes where
 -- Breakfast menu --
 --------------------
 
-data Side = Toast | Biscuit | HomeFries | Fruit deriving Show
-data Meat = Sausage | Bacon | Ham deriving Show
-data Main = Egg | Pancake | Waffle deriving Show
+data Side = Toast | Biscuit | HomeFries | Fruit deriving (Show, Eq)
+data Meat = Sausage | Bacon | Ham deriving (Show, Eq)
+data Main = Egg | Pancake | Waffle deriving (Show, Eq)
 
 data BreakFastSpecial =
     KidsBreakfast Main Side
   | BasicBreakfast Main Meat Side
-  | LumberJack Main Main Meat Meat Side Side Side
+  | LumberJack Main Main Meat Meat Side Side Side deriving (Show, Eq)
 
 ----------------
 -- Book Store --
