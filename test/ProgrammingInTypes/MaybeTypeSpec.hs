@@ -9,7 +9,7 @@ spec = do
   describe "Organs with maybes" $ do
     it "should filter a list of maybe organs to a organs" $ do
       let availableOrgans = [Nothing, Just Heart, Nothing, Nothing, Nothing, Just Kidney]
-      filterTheOrgans availableOrgans `shouldBe` [Just Heart, Just Kidney]
+      filterJustOrgans availableOrgans `shouldBe` [Just Heart, Just Kidney]
 
     it "should show maybe an organ" $ do
       showOrgan (Just Kidney) `shouldBe` "Kidney"

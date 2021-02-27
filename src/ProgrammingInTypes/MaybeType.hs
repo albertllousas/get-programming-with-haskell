@@ -11,8 +11,8 @@ isSomething :: Maybe Organ -> Bool
 isSomething Nothing = False
 isSomething (Just x) = True
 
-filterTheOrgans :: [Maybe Organ] -> [Maybe Organ]
-filterTheOrgans organs = filter isSomething organs
+filterJustOrgans :: [Maybe Organ] -> [Maybe Organ]
+filterJustOrgans organs = filter isSomething organs
 
 showOrgan :: Maybe Organ -> String
 showOrgan Nothing = ""
