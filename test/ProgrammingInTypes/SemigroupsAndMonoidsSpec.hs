@@ -33,6 +33,9 @@ spec = do
     it "should combine Sum types" $ do
        (Sum 1) `combine` (Sum 2) `shouldBe` (Sum 3)
 
+    it "should combine Product types" $ do
+       (Product 3) `combine` (Product 3) `shouldBe` (Product 9)
+
   describe "Combining types with Monoids" $ do
     it "should `combine` lists using our own definition of monoid" $ do
        ([1,2,3] `combine` identity `combine` [3,2,1]) `shouldBe` [1,2,3,3,2,1]

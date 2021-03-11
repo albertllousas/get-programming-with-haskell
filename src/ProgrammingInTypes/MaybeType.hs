@@ -30,7 +30,7 @@ data Location = Lab | Kitchen | Bathroom deriving (Show, Eq)
 organToContainer :: Organ -> Container
 organToContainer Brain = Vat Brain
 organToContainer Heart = Cooler Heart
-organToContainer otherOrgans = Bag otherOrgans
+organToContainer anyOtherOrgan = Bag anyOtherOrgan
 
 placeInLocation :: Container -> (Location, Container)
 placeInLocation (Vat o) = (Lab, Vat o)
