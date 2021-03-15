@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 87820e6fd3abb8495e020784f6465a2c727f0b1721fb1d6abbaf3e44b06a12cd
+-- hash: 7346d75186368b6d514577720e0b1b344d6224ebea896a72532f338d112c7342
 
 name:           fun-with-haskell
 version:        0.1.0.0
@@ -37,6 +37,7 @@ library
       ProgrammingInTypes.ParameterizedTypes
       ProgrammingInTypes.SemigroupsAndMonoids
       ProgrammingInTypes.TimeSeriesWithTypes
+      WorkingWithTypeInAContext.ApplicativeTypeClass
       WorkingWithTypeInAContext.FunctorTypeClass
   other-modules:
       Paths_fun_with_haskell
@@ -63,6 +64,7 @@ test-suite fun-with-haskell-test
       ProgrammingInTypes.SemigroupsAndMonoidsSpec
       ProgrammingInTypes.TimeSeriesWithTypesSpec
       TestSpec
+      WorkingWithTypeInAContext.ApplicativeTypeClassSpec
       WorkingWithTypeInAContext.FunctorTypeClassSpec
       Paths_fun_with_haskell
   hs-source-dirs:
