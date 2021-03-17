@@ -18,10 +18,12 @@ spec = do
         let just2 = Just 2
         let add = (+)
         add <$> just1 <*> just2 `shouldBe` Just 3
+        pure add <*> just1 <*> just2 `shouldBe` Just 3
         app (fmap add just1) just2 `shouldBe` Just 3
 
       it "should concat Maybe 2 strings" $ do
         (++) <$> Just "learn" <*> Just " Haskell" `shouldBe` Just "learn Haskell"
+        pure (++) <*> Just "learn" <*> Just " Haskell" `shouldBe` Just "learn Haskell"
 
       it "should add two Maybe values" $ do
         addMaybes (Just 2) (Just 3) `shouldBe` Just 5
@@ -35,6 +37,9 @@ spec = do
 
       it "should create a User using constructor as a function" $ do
         createUser (Just "Jane") (Just 101) (Just 10) `shouldBe` Just (User{ userName = "Jane", gamerId = 101, score = 10 })
+
+      it "should apply a binary function to values in lists" $ do
+        pure (+) <*> [1000,2000,3000] <*> [500,20000] `shouldBe` [1500,21000, 2500, 22000, 3500, 23000]
 
     describe "MyTraversable" $ do
 

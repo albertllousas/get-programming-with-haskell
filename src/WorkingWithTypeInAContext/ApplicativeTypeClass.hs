@@ -5,7 +5,7 @@ import WorkingWithTypeInAContext.FunctorTypeClass
 
 -- Applicative's allows to apply a function in a context
 class MyFunctor f => MyApplicative f where
-   pure :: a -> f a
+   pure :: a -> f a -- put an ordinary value or function in a context
    app :: f (a -> b) -> f a -> f b
    (<*>) :: f (a -> b) -> f a -> f b
    (<*>) = app
@@ -15,13 +15,17 @@ instance MyApplicative Maybe where
     app (Just f) (Just x) = Just (f x)
     app _ _ = Nothing
 
+instance MyApplicative [] where
+   pure x = [x]
+   app fs xs = [f x | f <- fs, x <- xs] -- List comprehension: https://wiki.haskell.org/List_comprehension
+
 -------------------------------------------------------------------
 -- Dealing with multiple values in a context, generalise Functor --
 -------------------------------------------------------------------
 
 applyToMaybes :: (a -> b -> c) -> Maybe a -> Maybe b -> Maybe c
 applyToMaybes fn x y = partiallyAppliedFn <*> y
-    where partiallyAppliedFn = fn <$> x -- type :: Maybe (b -> c)
+    where partiallyAppliedFn = fn <$> x -- put a fn in a context with type :: Maybe (b -> c)
 
 -- lift a function
 lift2Maybes = applyToMaybes
