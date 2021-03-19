@@ -1,10 +1,12 @@
+{-# OPTIONS_GHC -XPolyKinds #-}
 module WorkingWithTypeInAContext.FunctorTypeClass where
 
-import Prelude hiding (fmap, (<$>))
+import Prelude hiding (Maybe,Just,Nothing,fmap, (<$>))
+import ProgrammingInTypes.MaybeType
 import qualified Data.Map as Map
 
 -- A functor represents a type that can be mapped over
-class MyFunctor f where -- f is a type constructor with kind * -> *
+class MyFunctor (f :: * -> *) where -- f is a type constructor with kind * -> *
     fmap :: (a -> b) -> f a -> f b -- Note: f does not stand for function, it means functor
     (<$>) :: (a -> b) -> f a -> f b
     (<$>) = fmap

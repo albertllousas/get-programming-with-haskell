@@ -1,6 +1,7 @@
 module WorkingWithTypeInAContext.ApplicativeTypeClass where
 
-import Prelude hiding (fmap, (<$>), (<*>), sequenceA, traverse, pure)
+import Prelude hiding (Maybe,Just,Nothing,fmap, (<$>), (<*>), sequenceA, traverse, pure)
+import ProgrammingInTypes.MaybeType
 import WorkingWithTypeInAContext.FunctorTypeClass
 
 -- Applicative's allows to apply a function in a context

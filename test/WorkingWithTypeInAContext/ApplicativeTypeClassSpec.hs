@@ -5,7 +5,8 @@ import WorkingWithTypeInAContext.FunctorTypeClass
 import qualified WorkingWithTypeInAContext.FunctorTypeClass
 import WorkingWithTypeInAContext.ApplicativeTypeClass
 import qualified WorkingWithTypeInAContext.ApplicativeTypeClass
-import Prelude hiding (fmap, (<$>), (<*>), sequenceA, traverse, pure)
+import Prelude hiding (fmap, (<$>), (<*>), sequenceA, traverse, pure, Maybe,Just,Nothing,)
+import ProgrammingInTypes.MaybeType
 
 spec :: Spec
 spec = do

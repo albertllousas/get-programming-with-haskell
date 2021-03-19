@@ -3,7 +3,8 @@ module WorkingWithTypeInAContext.FunctorTypeClassSpec where
 import Test.Hspec
 import WorkingWithTypeInAContext.FunctorTypeClass
 import qualified WorkingWithTypeInAContext.FunctorTypeClass
-import Prelude hiding (fmap, (<$>))
+import ProgrammingInTypes.MaybeType
+import Prelude hiding (Maybe,Just,Nothing,fmap, (<$>))
 
 spec :: Spec
 spec = do

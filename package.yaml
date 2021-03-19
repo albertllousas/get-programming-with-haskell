@@ -9,7 +9,7 @@ copyright:           "2021 Author name here"
 extra-source-files:
 - README.md
 
-description:         Please see the README on GitHub at <https://github.com/githubuser/fun-with-haskell#readme>
+description:         Please see the README on GitHub at <https://github.com/albertllousas/fun-with-haskell#readme>
 
 dependencies:
 - base >= 4.7 && < 5

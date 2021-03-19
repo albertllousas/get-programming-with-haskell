@@ -4,11 +4,11 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 7346d75186368b6d514577720e0b1b344d6224ebea896a72532f338d112c7342
+-- hash: 43b2d0375698fbe3cd02d047e6275947f8b5f30b7f15c658a758b2cd0841daa3
 
 name:           fun-with-haskell
 version:        0.1.0.0
-description:    Please see the README on GitHub at <https://github.com/githubuser/fun-with-haskell#readme>
+description:    Please see the README on GitHub at <https://github.com/albertllousas/fun-with-haskell#readme>
 homepage:       https://github.com/githubuser/fun-with-haskell#readme
 bug-reports:    https://github.com/githubuser/fun-with-haskell/issues
 author:         Author name here
@@ -39,6 +39,8 @@ library
       ProgrammingInTypes.TimeSeriesWithTypes
       WorkingWithTypeInAContext.ApplicativeTypeClass
       WorkingWithTypeInAContext.FunctorTypeClass
+      WorkingWithTypeInAContext.MonadTypeClass
+      WorkingWithTypeInAContext.SQLQueriesWithMonads
   other-modules:
       Paths_fun_with_haskell
   hs-source-dirs:
@@ -66,6 +68,7 @@ test-suite fun-with-haskell-test
       TestSpec
       WorkingWithTypeInAContext.ApplicativeTypeClassSpec
       WorkingWithTypeInAContext.FunctorTypeClassSpec
+      WorkingWithTypeInAContext.MonadTypeClassSpec
       Paths_fun_with_haskell
   hs-source-dirs:
       test

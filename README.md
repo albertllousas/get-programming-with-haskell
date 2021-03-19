@@ -8,7 +8,7 @@ Introduction to haskell through examples, almost all of them following this amaz
 
 [Get programming with Haskell - Will Kurt](https://www.manning.com/books/get-programming-with-haskell)
 
-All the [code](/src) is fully [tested](/test)
+All the [code](/src) and how to use it -> [tests](/test)
 
 ## Build
 ```shell
