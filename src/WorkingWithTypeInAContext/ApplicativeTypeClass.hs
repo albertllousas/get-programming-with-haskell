@@ -40,7 +40,7 @@ incMaybe x = partiallyAppliedInc <*> x
 data User = User { userName :: String, gamerId :: Int, score :: Int } deriving (Eq, Show)
 
 createUser :: Maybe String -> Maybe Int -> Maybe Int -> Maybe User
-createUser userName gamerId score = User <$> userName <*> gamerId <*> score
+createUser userName gamerId score = User <$> userName <*> gamerId <*> score -- data constructor can be used as a fn
 
 
 -----------------
